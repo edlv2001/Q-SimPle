@@ -313,3 +313,9 @@ func (q *qSim) CNOT(control int, target int) {
 func (q *qSim) CH(control int, target int) {
 	q.addControlledGate(H(), control, target)
 }
+
+func (q *qSim) SWAP(qubit1 int, qubit2 int) {
+	q.addControlledGate(X(), qubit1, qubit2)
+	q.addControlledGate(X(), qubit2, qubit1)
+	q.addControlledGate(X(), qubit1, qubit2)
+}

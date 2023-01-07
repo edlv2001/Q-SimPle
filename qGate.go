@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -77,7 +76,6 @@ func ControlledGate(m qGate, nQuBits int, control int, appliedQbit int) qGate {
 				r := getNbit(i, nQuBits-appliedQbit)
 				c := getNbit(j, nQuBits-appliedQbit)
 				gate[j][i] = m[r][c]
-				fmt.Printf("gate[%v][%v] = m[%v][%v] = %v\n", j, i, r, c, m[r][c])
 			}
 		}
 	}

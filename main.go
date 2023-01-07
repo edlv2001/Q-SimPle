@@ -3,9 +3,11 @@ package main
 func main() {
 	q := new(2)
 
-	q.CH(0, 1)
-	q.CH(1, 0)
-
+	q.H(0, 1)
+	q.NOT(1)
+	q.SHOW()
+	q.SWAP(0, 1)
+	q.SHOW()
 	q.simulate()
 
 }
