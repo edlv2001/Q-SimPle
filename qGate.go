@@ -62,15 +62,11 @@ func ControlledGate(m qGate, nQuBits int, control int, appliedQbit int) qGate {
 			if contains(zeroIndexControl, j) {
 				continue
 			}
-			fmt.Printf("FILA: valor de i : %v; COLUMNA: valor de j : %v\n", i, j)
 
 			diff := false
 			for k := 0; k < nQuBits; k++ {
-				fmt.Printf("valor de k : %v;  valor de t : %v\n", k, appliedQbit)
 				auxFila := getNbit(i, nQuBits-k)
 				auxColumna := getNbit(j, nQuBits-k)
-				fmt.Printf("auxFila: %v\n", auxFila)
-				fmt.Printf("auxColumna: %v\n", auxColumna)
 
 				if appliedQbit != k && auxFila != auxColumna {
 					diff = true
@@ -83,17 +79,9 @@ func ControlledGate(m qGate, nQuBits int, control int, appliedQbit int) qGate {
 				gate[j][i] = m[r][c]
 				fmt.Printf("gate[%v][%v] = m[%v][%v] = %v\n", j, i, r, c, m[r][c])
 			}
-			print("\n\n\n")
 		}
 	}
-	print(matrix(gate).toString())
 	return gate
-	/*return [][]complex128{
-		{1, 0, 0, 0},
-		{0, 1, 0, 0},
-		{0, 0, 0, 1},
-		{0, 0, 1, 0},
-	}*/
 }
 
 func In(n int) qGate {
